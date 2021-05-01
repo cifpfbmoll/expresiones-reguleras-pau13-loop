@@ -13,7 +13,7 @@ public class RegexRomanNumber {
     public RegexRomanNumber() {}
 
     // GET Regex Dictionary
-    public Map<String, String> getRegexMap() {
+    public Map<String, String> getRegex() {
         return this.regexDictionary;
     }
 
@@ -25,5 +25,15 @@ public class RegexRomanNumber {
     // GET VALUES Regex Dictionary
     public Collection<String> getValueRegex() {
         return this.regexDictionary.values();
+    }
+
+    // ADD Regex to the Dictionary
+    public void addRegex(String key, String value) {
+        this.regexDictionary.put(key, value);
+    }
+
+    // CHECK LENGTH Regex Dictionary
+    public int getLengthRegexDictionary() {
+        return this.regexDictionary.size();
     }
 }
