@@ -12,7 +12,7 @@ public enum RomanSymbol {
         this.decimalValue = decimalValue;
     }
 
-    public int getDecimalNum() {
+    public int getDecimalValue() {
         return this.decimalValue;
     }
 }
