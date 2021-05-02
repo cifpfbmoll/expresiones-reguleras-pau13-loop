@@ -44,8 +44,8 @@ The rules for this kata are really simple and are explained below:
 - The symbol I and the symbols with base 10 --> (X, C and M) can be repeated up to three consecutive times
 - The symbols with base 5 --> (V, L and D) can not be repeated, because their summative can be representated by another way using the rest of the symbols
 - The symbol I and the symbols with base 10 (X, C and M) can appear being subtractive to another symbol having higher value, but following the next rules:
-1. Just can be subtractive with the numbers with base 5 and 10 with a higher value but not on another symbols with lower value
-2. In case of being subtractive they can not be repeated
+  1. Just can be subtractive with the numbers with base 5 and 10 with a higher value but not on another symbols with lower value
+  2. In case of being subtractive they can not be repeated
 - The symbols with base 5 can not be used to make subtractive groups
 
 ---
