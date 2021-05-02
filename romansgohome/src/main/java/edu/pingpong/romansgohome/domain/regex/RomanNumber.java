@@ -110,23 +110,21 @@ public class RomanNumber {
     }
 
     public int toDecimal() {
-        if (!romanNumValidation()) {
-            return 0;
-        } else {
             for (String regex : getRegexDictionary().getValueRegex()) {
                 Matcher matcher = createMatcher(regex);
                 sumatoryToDecimal(matcher);
             }
-            return getDecimalNum();
-        }
+        return getDecimalNum();
     }
 
     // Should add a regex to test if the Roman Number introduced is a valid roman
     // number
 
     /**
-     * ===== RULES ===== - X, C and M can be 3 consecutive times - V, L and D can
-     * NOT be 3 consecutive times - V can NOT be substractive
+     * ===== RULES ===== 
+     * - X, C and M can be 3 consecutive times 
+     * - V, L and D can NOT be 3 consecutive times 
+     * - V can NOT be substractive
      * 
      */
     public boolean romanNumValidation() {
