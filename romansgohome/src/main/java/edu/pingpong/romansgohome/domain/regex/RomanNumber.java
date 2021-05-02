@@ -120,4 +120,27 @@ public class RomanNumber {
 
     // Should add a regex to test if the Roman Number introduced is a valid roman number
 
+    /**
+     * ===== RULES =====
+     * - X, C and M can be 3 consecutive times
+     * - V, L and D can NOT be 3 consecutive times
+     * - V can NOT be substractive
+     * 
+     */
+    public boolean romanNumValidation() {
+        return getRomanNum().matches("^(M{0,3})(C[MD]|D?C{0,3})(X[CL]|L?X{0,3})(I[XV]|V?I{0,3})");
+
+        // ATTEMPTS
+
+        // ^(M{0,3})(D)(C[DM])(C{0,3})(L)(X[LC])(X{0,3})(I[XV])(V)(I{0,3})
+
+        // ^(M{0,3})|C(?=[MD])(C{0,3})\S
+
+        // MMDCDCCLXLXXIVVIII
+        // ^(M{0,3})(C[DM])(D?C{0,3})(X[LC])(L?X{0,3})(I[XV])(V?I{0,3})
+
+        // Not following the roman numeration standart
+        // MCMDDCDCCXCLL
+        // ^(M{0,3})(C[MD])(D{0,3})(CD)(C{0,3})(XC)(L{0,3})
+    }
 }
