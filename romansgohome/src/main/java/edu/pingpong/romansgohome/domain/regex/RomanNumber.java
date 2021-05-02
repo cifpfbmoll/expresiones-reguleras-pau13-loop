@@ -6,15 +6,16 @@ import java.util.regex.Pattern;
 import edu.pingpong.romansgohome.domain.enums.RomanSymbol;
 
 public class RomanNumber {
-    
+
     private String romanNum = null;
     private int decimalNum = 0;
 
     private RegexRomanNumber regex = new RegexRomanNumber();
 
     // Construcotr Overloading
-    public RomanNumber() {}
-    
+    public RomanNumber() {
+    }
+
     public RomanNumber(String romanNum) {
         this.romanNum = romanNum;
     }
@@ -46,17 +47,17 @@ public class RomanNumber {
     public void initRegexDictionary() {
         getRegexDictionary().addRegex("Summative", "(?<!I)[VX](?![CL])|I(?![VX])|(?<!X)[CL](?![DM])|(?<!C)[DM]");
         /**
-         * INITIAL MISTAKE making the substractory group, 
-         * it takes one by one when their substractive and added to the result instead of take 
-         * the substractive group together and added to it like a group
+         * INITIAL MISTAKE making the substractory group, it takes one by one when their
+         * substractive and added to the result instead of take the substractive group
+         * together and added to it like a group
          * 
-         * First substractive created --> "I(?=[VX])|(?<=I)[VX]|X(?=[CL])|(?<=X)[CL]|C(?=[DM])|(?<=C)[DM]"
+         * First substractive created -->
+         * "I(?=[VX])|(?<=I)[VX]|X(?=[CL])|(?<=X)[CL]|C(?=[DM])|(?<=C)[DM]"
          * 
          * The correct substractive group is the one it appears below this comment
          */
         getRegexDictionary().addRegex("Substractive", "I[VX]|X[LC]|C[DM]");
     }
-
 
     /// SUMMATIVE ///
 
@@ -83,13 +84,11 @@ public class RomanNumber {
     // Add summative ones I
     // I(?![VX]) --> match I not followed by X or V
 
-
     /// SUBSTRACTIVE ///
 
     // I([VX]) --> match IV or IX
     // X([LC]) --> match XL or XC
     // C([DM]) --> match CD or CM
-
 
     // COMPILE AND MATCH
     public Matcher createMatcher(String regex) {
@@ -111,24 +110,27 @@ public class RomanNumber {
     }
 
     public int toDecimal() {
-        for (String regex : getRegexDictionary().getValueRegex()) {
-            Matcher matcher = createMatcher(regex);
-            sumatoryToDecimal(matcher);
+        if (!romanNumValidation()) {
+            return 0;
+        } else {
+            for (String regex : getRegexDictionary().getValueRegex()) {
+                Matcher matcher = createMatcher(regex);
+                sumatoryToDecimal(matcher);
+            }
+            return getDecimalNum();
         }
-        return getDecimalNum();
     }
 
-    // Should add a regex to test if the Roman Number introduced is a valid roman number
+    // Should add a regex to test if the Roman Number introduced is a valid roman
+    // number
 
     /**
-     * ===== RULES =====
-     * - X, C and M can be 3 consecutive times
-     * - V, L and D can NOT be 3 consecutive times
-     * - V can NOT be substractive
+     * ===== RULES ===== - X, C and M can be 3 consecutive times - V, L and D can
+     * NOT be 3 consecutive times - V can NOT be substractive
      * 
      */
     public boolean romanNumValidation() {
-        return getRomanNum().matches("^(M{0,3})(C[MD]|D?C{0,3})(X[CL]|L?X{0,3})(I[XV]|V?I{0,3})");
+        return getRomanNum().matches("^(M{0,3})(C[MD]|D?C{0,3})(X[CL]|L?X{0,3})(I[XV]|V?I{0,3})$");
 
         // ATTEMPTS
 
