@@ -5,25 +5,25 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class ValidationRomanNumTest {
-    
+
     private RomanNumber romanNumber;
 
-    @Before 
+    @Before
     public void setUpRomanNumber() {
         romanNumber = new RomanNumber();
     }
 
     // Check for the first three numbers
-    // Check that is able to start with any combination of three numbers following the numeric roman standarts
+    // Check that is able to start with any combination of three numbers following
+    // the numeric roman standarts
     @Test
-    public void testFirstThreeNumbers(){
+    public void testFirstThreeNumbers() {
 
         String caseI = "III";
         String caseX = "XXX";
         String caseC = "CCC";
         String caseM = "MMM";
         String failMoreThanThree = "CCCC";
-        
 
         romanNumber.setRomanNum(caseI);
         assertEquals(true, romanNumber.romanNumValidation());

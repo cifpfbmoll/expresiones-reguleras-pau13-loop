@@ -9,8 +9,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class RegexDictionaryTest {
-    
-    private RegexRomanNumber regex = new RegexRomanNumber(); 
+
+    private RegexRomanNumber regex = new RegexRomanNumber();
     private Map<String, String> test1 = new HashMap<>();
 
     @Before
@@ -18,7 +18,7 @@ public class RegexDictionaryTest {
         test1.put("Test regex", "value");
         regex.addRegex("Test regex", "value");
     }
-    
+
     @Test
     public void testgetRegexDictionary() {
         assertEquals(test1, regex.getRegex());
