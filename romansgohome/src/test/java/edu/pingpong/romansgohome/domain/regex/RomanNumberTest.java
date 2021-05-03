@@ -210,7 +210,7 @@ public class RomanNumberTest {
     @Test
     public void testRomanNumMix() {
 
-        String caseMix1 = "MMCDLXXIV"; 
+        String caseMix1 = "MMCDLXXIV";
         String caseMix2 = "CCXLVIII";
         String caseMix3 = "MMCMXLIV";
         String caseMix4 = "DCXLIX";
@@ -218,12 +218,12 @@ public class RomanNumberTest {
         // Case MMCDLXXIV
         romanNumber.setRomanNum(caseMix1);
         assertEquals(2474, romanNumber.toDecimal());
-        
+
         // Case CCXLVIII
         romanNumber.setDecimalNum(0);
         romanNumber.setRomanNum(caseMix2);
         assertEquals(248, romanNumber.toDecimal());
-        
+
         // Case MMCMXLIV
         romanNumber.setDecimalNum(0);
         romanNumber.setRomanNum(caseMix3);

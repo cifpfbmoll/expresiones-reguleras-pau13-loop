@@ -46,6 +46,7 @@ public class RomanNumber {
     // INIT Regex Dictionary
     public void initRegexDictionary() {
         getRegexDictionary().addRegex("Summative", "(?<!I)[VX](?![CL])|I(?![VX])|(?<!X)[CL](?![DM])|(?<!C)[DM]");
+
         /**
          * INITIAL MISTAKE making the substractory group, it takes one by one when their
          * substractive and added to the result instead of take the substractive group
@@ -110,10 +111,14 @@ public class RomanNumber {
     }
 
     public int toDecimal() {
+        if (romanNumValidation()) {
             for (String regex : getRegexDictionary().getValueRegex()) {
                 Matcher matcher = createMatcher(regex);
                 sumatoryToDecimal(matcher);
             }
+        } else {
+            return 0;
+        }
         return getDecimalNum();
     }
 
@@ -121,12 +126,11 @@ public class RomanNumber {
     // number
 
     /**
-     * ===== RULES ===== 
-     * - X, C and M can be 3 consecutive times 
-     * - V, L and D can NOT be 3 consecutive times 
-     * - V can NOT be substractive
+     * ===== RULES ===== - X, C and M can be 3 consecutive times - V, L and D can
+     * NOT be 3 consecutive times - V can NOT be substractive
      * 
      */
+
     public boolean romanNumValidation() {
         return getRomanNum().matches("^(M{0,3})(C[MD]|D?C{0,3})(X[CL]|L?X{0,3})(I[XV]|V?I{0,3})$");
 
